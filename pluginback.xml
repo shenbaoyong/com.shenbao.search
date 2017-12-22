@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.commands">
+         <command
+            id="com.shenbao.menu.searchCommand"
+            name="search">
+    	  </command>
+   </extension>
+   <!-- objectClass="org.eclipse.jdt.core.IAdaptable" -->
+   <!-- objectClass="org.eclipse.core.resources.IResource"   adaptable="true" -->
+   <extension  
+         point="org.eclipse.ui.popupMenus">  
+      <objectContribution  
+            objectClass="org.eclipse.ui.console.MessageConsole"   
+            adaptable="true"
+            id="cat.contribution1"  >  
+         <action  
+               label="搜索"  
+               class="com.shenbao.search.handler.SearchHandler"  
+               menubarPath="additions"  
+               enablesFor="+"  
+               id="cat.newAction">  
+         </action>  
+      </objectContribution>  
+   </extension>  
+   
+   <extension
+         point="org.eclipse.ui.handlers">
+	   <handler
+            class="com.shenbao.search.handler.SearchHandler"
+            commandId="com.shenbao.menu.searchCommand">
+      </handler>
+   </extension>
+
+</plugin>
